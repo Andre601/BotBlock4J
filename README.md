@@ -1,7 +1,10 @@
 [BotBlock]: https://botblock.org
 [api]: https://botblock.org/api/docs
 
-[BotBlockAPI]: https://github.com/Nathan-Webb/BotBlock4J/blob/master/src/main/java/com/andre601/botblock4j/BotBlockAPI.java
+[BotBlockAPI]: https://github.com/Andre601/BotBlock4J/blob/master/src/main/java/com/andre601/botblock4j/BotBlockAPI.java
+[Release]: https://github.com/Andre601/BotBlock4J/releases/latest
+
+[BadgeGitHub]: https://img.shields.io/github/release/Andre601/BotBlock4J.svg?label=latest%20release
 
 # BotBlock4J
 
@@ -11,7 +14,9 @@ You can view the full list of Discord bot list APIs that BotBlock, and by extens
 This Wrapper is now continued and updated by Andre601 after it was created and maintained by Nathan-Webb
 
 ## Install
-You have two options for implementing the API.
+[![BadgeGitHub]][Release]
+
+You have two options for implementing the API. Remember to replace `{version}` with the above listed version String.
 
 ### Gradle
 ```gradle
@@ -20,7 +25,7 @@ repositories {
 }
 
 dependencies {
- compile group: 'com.github.andre601', name: 'BotBlock4J', version: '2.0.0'
+ compile group: 'com.github.andre601', name: 'BotBlock4J', version: '{version}'
 }
 ```
 
@@ -36,7 +41,7 @@ dependencies {
 <dependency>
   <groupId>com.github.andre601</groupId>
   <artifactId>BotBlock4J</artifactId>
-  <version>2.0.0</version>
+  <version>{version}</version>
 </dependency>
 ```
 
