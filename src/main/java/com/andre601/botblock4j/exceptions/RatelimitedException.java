@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Nathan Webb (nathanwgithub@gmail.com)
+ * Copyright 2018 Nathan Webb (nathanwgithub@gmail.com), Andre601
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -16,10 +16,35 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-package com.nathanwebb.botblock4j.exceptions;
+package com.andre601.botblock4j.exceptions;
 
-/**
- * Made to be extended by all other exceptions.
- */
-class BotBlockException extends Throwable {
+import org.json.JSONObject;
+
+public class RatelimitedException extends Throwable{
+
+    private int delay;
+    private String ip;
+    private String route;
+    private String id;
+
+    public RatelimitedException(String response){
+        JSONObject json = new JSONObject(response);
+
+        this.delay = json.getInt("retry_after");
+        this.ip = json.getString("ratelimit_ip");
+        this.route = json.getString("ratelimit_route");
+        this.id = json.getString("ratelimit_bot_id");
+    }
+
+    @Override
+    public String getMessage(){
+        return String.format(
+                "Bot ID: %s (IP: %s) got ratelimited on route %s! You can try again in %d seconds!",
+                id,
+                ip,
+                route,
+                delay
+        );
+    }
+
 }
